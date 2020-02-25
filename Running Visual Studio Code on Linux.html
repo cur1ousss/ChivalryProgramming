@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<!-- saved from url=(0139)https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="cn5-gurGUvjtlzniBhOIPjfKHzuAplh_R9Ju9tuL0DM">
+
+  <!-- Twitter and Facebook OpenGraph Metadata-->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@code">
+
+  <meta itemprop="applicationCategory" content="Text Editor">
+  <meta itemprop="datePublished" content="2016-04-14">
+  <meta itemprop="operatingSystem" content="Mac, Linux, Windows">
+
+  	<meta name="description" content="Get Visual Studio Code up and running on Linux.">
+	<meta name="keywords" content="">
+    <meta name="ms.prod" content="vs-code">
+    <meta name="ms.TOCTitle" content="Linux">
+    <meta name="ms.ContentId" content="7FDF94DB-3527-4296-BE1C-493495B89408">
+    <meta name="ms.date" content="2/5/2020">
+    <meta name="ms.topic" content="conceptual">
+	<!-- Twitter and Facebook OpenGraph Metadata-->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:url" content="https://code.visualstudio.com/docs/setup/linux">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Running Visual Studio Code on Linux">
+    <meta property="og:description" content="Get Visual Studio Code up and running on Linux.">
+    
+    <meta property="og:image" content="https://code.visualstudio.com/opengraphimg/opengraph-docs.png">
+    
+
+
+  <link rel="shortcut icon" href="https://code.visualstudio.com/favicon.ico" sizes="128x128">
+  <link rel="apple-touch-icon" href="https://code.visualstudio.com/apple-touch-icon.png">
+
+  <title>Running Visual Studio Code on Linux</title>
+
+  <link rel="stylesheet" href="./Running Visual Studio Code on Linux_files/bootstrap.min.css">
+  <!-- EU Cookie Compliance CSS -->
+  <link rel="stylesheet" href="./Running Visual Studio Code on Linux_files/mscc-0.3.6.min.css">
+  <link rel="stylesheet" href="./Running Visual Studio Code on Linux_files/style.css">
+
+  <!--Google Analytics-->
+  <script async="" src="./Running Visual Studio Code on Linux_files/analytics.js"></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  </script>
+  <!-- End Google Analytics -->
+  
+  <!-- Global site tag (gtag.js) - Google AdWords: 881159895 -->
+  <script async="" src="./Running Visual Studio Code on Linux_files/js"></script>
+  <script>
+  function loadGA () {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-881159895');
+    window.gtag = gtag;
+  }
+  
+  if (document.cookie.indexOf('MSCC=') !== -1) {
+    loadGA();
+  } else {
+    if (mscc && mscc.on) {
+      mscc.on('consent', function () {
+        loadGA();
+      })
+    }
+  }
+  </script>
+  <script src="./Running Visual Studio Code on Linux_files/jsll-4.js" type="text/javascript"></script>
+  
+  <link rel="alternate" type="application/atom+xml" title="RSS Feed for code.visualstudio.com" href="https://code.visualstudio.com/feed.xml">
+</head>
+
+<body class="linux x64">
+  <!-- EU Cookie Compliance JS -->
+  <script src="./Running Visual Studio Code on Linux_files/mscc-0.3.6.min.js"></script>
+
+  <div id="mscc-cookie-container">
+    <div id="msccBanner" dir="ltr" data-site-name="uhf-vscode" data-mscc-version="0.3.4" data-nver="aspnet-2.0.5" data-sver="0.1.2" class="cc-banner active" role="alert">
+      <div class="cc-container">
+        <svg class="cc-icon cc-v-center" x="0px" y="0px" viewBox="0 0 44 44" height="30px" fill="none" stroke="currentColor">
+          <circle cx="22" cy="22" r="20" stroke-width="2"></circle>
+          <line x1="22" x2="22" y1="18" y2="33" stroke-width="3"></line>
+          <line x1="22" x2="22" y1="12" y2="15" stroke-width="3"></line>
+          </svg>
+            <span class="cc-v-center cc-text">This site uses cookies for analytics, personalized content and ads. By continuing to browse this site, you agree to this use.</span>
+            <a href="https://go.microsoft.com/fwlink/?linkid=845480" aria-label="Learn more about Microsoft’s Cookie Policy" id="msccLearnMore" data-mscc-ic="false" class="cc-link cc-v-center cc-float-right">Learn more</a>
+      </div>
+    </div>
+  </div>
+  <div id="main" itemscope="" itemtype="http://schema.org/SoftwareApplication" style="transform: translateY(45px);">
+          <a role="button" id="skip-to-content" class="link-button" href="https://code.visualstudio.com/docs/setup/linux#main-content">Skip to content<i>&nbsp;</i><span class="glyphicon glyphicon-menu-down"></span></a>
+          <div class="navbar-fixed-container">
+              <div class="navbar navbar-inverse navbar-fixed-top ">
+                  <nav role="navigation" aria-label="Top Level">
+                      <div class="container">
+                          <div class="nav navbar-header">
+                              <a class="navbar-brand" href="https://code.visualstudio.com/"><span itemprop="name">Visual Studio Code</span></a>
+                              <button type="button" class="navbar-toggle" role="navigation" data-toggle="collapse" data-target=".navbar-collapse" aria-label="Toggle Navigation Menu">
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                              </button>
+                          </div>
+                          <div class="navbar-collapse collapse" role="navigation">
+                              <ul class="nav navbar-nav navbar-left" role="presentation">
+                                  <li class="active"><a id="nav-docs" href="https://code.visualstudio.com/docs">Docs</a></li>
+                                  <li><a id="nav-updates" href="https://code.visualstudio.com/updates">Updates</a></li>
+                                  <li><a id="nav-blogs" href="https://code.visualstudio.com/blogs">Blog</a></li>
+                                  <li><a id="nav-extend" href="https://code.visualstudio.com/api">API</a></li>
+                                  <li><a href="https://marketplace.visualstudio.com/VSCode" target="_blank" id="nav-extensions">Extensions</a></li>
+                                  <li><a id="nav-faqs" href="https://code.visualstudio.com/docs/supporting/faq">FAQ</a></li>
+                                  <li class="search visible-xs"><a href="https://code.visualstudio.com/Search">Search</a></li>
+                              </ul>
+          
+                              <ul class="nav navbar-nav navbar-right" role="presentation">
+                                  <!-- Floating search icon -->
+                                  <li>
+                                      <a href="https://code.visualstudio.com/Search" title="Search" class="btn search-btn" id="nav-search">
+                                          <img class="search-icon" src="./Running Visual Studio Code on Linux_files/search.svg" width="16px" height="16px" alt="Search">
+                                          <img class="search-icon-inverted" src="./Running Visual Studio Code on Linux_files/search_dark.svg" width="16px" height="16px" alt="Search">
+                                      </a>
+                                  </li>
+                                  <!-- Actual search icon -->
+                                  <li class="search">
+                                      <form class="nav-search search-form" aria-label="Search"> 
+                                          <div class="input-group" aria-hidden="true">
+                                              <input type="text" name="q" class="search-box form-control" placeholder="Search Docs" aria-label="Search text">
+                                              <span class="input-group-btn">
+                                                  <button tabindex="0" class="btn" type="submit" aria-label="Search">
+                                                          <img class="search-icon" src="./Running Visual Studio Code on Linux_files/search.svg" width="16px" height="16px" alt="Search">
+                                                          <img class="search-icon-inverted" src="./Running Visual Studio Code on Linux_files/search_dark.svg" width="16px" height="16px" alt="Search">
+                                                  </button>
+                                              </span>
+                                          </div>
+                                      </form>                        </li>
+                                  <!-- this was hiden in the home and download page, keeping it for now -->
+                                  <li><a itemprop="downloadUrl" class="link-button" href="https://code.visualstudio.com/Download" id="nav-download">
+                                      <img class="download-icon" src="./Running Visual Studio Code on Linux_files/download.svg" width="16px" height="16px" alt="Download VS Code">
+                                      <img class="download-icon-inverted" src="./Running Visual Studio Code on Linux_files/download-black.svg" width="16px" height="16px" alt="Download VS Code">
+                                      <span class="hidden-sm">Download</span>
+                                  </a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </nav>
+              </div>
+          </div>          <div class="updates-banner  ">
+              <div class="container">
+                  <p class="message"><a href="https://code.visualstudio.com/updates" id="banner-link-updates">Version <span itemprop="softwareVersion">1.42</span></a> is now available! Read about the new features and fixes from January.</p>
+              </div>
+              <div tabindex="0" role="button" title="Dismiss this update" class="dismiss-btn" id="banner-dismiss-btn"><span class="sr-only">Dismiss this update</span><span aria-hidden="true" class="glyph-icon"></span></div>
+          </div>      <div role="main" id="main-content">
+        <script>
+    function closeReportIssue() {
+        var element = document.getElementById('surveypopup');
+        element.parentElement.removeChild(element);
+    }
+
+    function reportIssue(tutorial, page) {
+        var div = document.createElement('div');
+        div.innerHTML = '<div id="surveypopup" class="overlay visible"><div class="surveypopup"><div id="surveytitle">Tell us more<a href="javascript:void(0)" onclick="closeReportIssue()">X</a></div><div id="surveydiv"><iframe frameBorder="0" scrolling="0" src="https://www.research.net/r/PWZWZ52?tutorial='+tutorial+'&step='+page+'"></iframe></div></div></div>';
+        document.body.appendChild(div.children[0]);
+    }
+</script>
+
+<div class="container body-content docs">
+    <div class="row">
+        <div class="col-md-2 docs-navbar-container">
+            <nav id="docs-navbar" aria-label="Topics" class="docs-nav visible-md visible-lg">
+            	<ul class="nav" id="main-nav">
+            		<li>
+            			<a class="docs-home" href="https://code.visualstudio.com/docs">Overview</a>
+            		</li>
+            		
+            			
+            		
+            			
+            				<li class="panel active expanded">
+            					<a class="area" aria-label="Setup drop down" href="https://code.visualstudio.com/docs/setup/linux#setup-articles" data-parent="#main-nav" data-toggle="collapse">Setup</a>
+            					<ul id="setup-articles" class="collapse in">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/setup/setup-overview">Overview</a>
+            						</li>
+            					
+            						<li class="active">
+            							<a href="https://code.visualstudio.com/docs/setup/linux" aria-label="Current Page: Linux">Linux</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/setup/mac">macOS</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/setup/windows">Windows</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/setup/network">Network</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/setup/additional-components">Additional Components</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Get Started drop down" href="https://code.visualstudio.com/docs/setup/linux#getstarted-articles" data-parent="#main-nav" data-toggle="collapse">Get Started</a>
+            					<ul id="getstarted-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/getstarted/introvideos">Intro Videos</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/getstarted/tips-and-tricks">Tips and Tricks</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/getstarted/userinterface">User Interface</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/getstarted/themes">Themes</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/getstarted/settings">Settings</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/getstarted/keybindings">Key Bindings</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/getstarted/locales">Display Language</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/getstarted/telemetry">Telemetry</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="User Guide drop down" href="https://code.visualstudio.com/docs/setup/linux#editor-articles" data-parent="#main-nav" data-toggle="collapse">User Guide</a>
+            					<ul id="editor-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/codebasics">Basic Editing</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/extension-gallery">Extension Marketplace</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/intellisense">IntelliSense</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/editingevolved">Code Navigation</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/refactoring">Refactoring</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/debugging">Debugging</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/versioncontrol">Version Control</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/integrated-terminal">Integrated Terminal</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/multi-root-workspaces">Multi-root Workspaces</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/tasks">Tasks</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/userdefinedsnippets">Snippets</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/emmet">Emmet</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/command-line">Command Line</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/accessibility">Accessibility</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Languages drop down" href="https://code.visualstudio.com/docs/setup/linux#languages-articles" data-parent="#main-nav" data-toggle="collapse">Languages</a>
+            					<ul id="languages-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/overview">Overview</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/javascript">JavaScript</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/json">JSON</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/html">HTML</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/css">CSS, SCSS and Less</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/typescript">TypeScript</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/markdown">Markdown</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/powershell">PowerShell</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/cpp">C++</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/java">Java</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/php">PHP</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/python">Python</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/go">Go</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/tsql">T-SQL</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/csharp">C#</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/dotnet">.NET Core</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Node.js / JavaScript drop down" href="https://code.visualstudio.com/docs/setup/linux#nodejs-articles" data-parent="#main-nav" data-toggle="collapse">Node.js / JavaScript</a>
+            					<ul id="nodejs-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/working-with-javascript">Working with JavaScript</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/nodejs-tutorial">Node.js Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/nodejs-debugging">Node.js Debugging</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/nodejs-deployment">Node.js Deployment</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/reactjs-tutorial">React Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/angular-tutorial">Angular Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/vuejs-tutorial">Vue Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/emberjs-tutorial">Ember Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/debugging-recipes">Debugging Recipes</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/extensions">Extensions</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="TypeScript drop down" href="https://code.visualstudio.com/docs/setup/linux#typescript-articles" data-parent="#main-nav" data-toggle="collapse">TypeScript</a>
+            					<ul id="typescript-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/typescript/typescript-tutorial">Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/typescript/typescript-compiling">Compiling</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/typescript/typescript-debugging">Debugging</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Python drop down" href="https://code.visualstudio.com/docs/setup/linux#python-articles" data-parent="#main-nav" data-toggle="collapse">Python</a>
+            					<ul id="python-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/python-tutorial">Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/editing">Editing Code</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/linting">Linting</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/debugging">Debugging</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/jupyter-support">Jupyter Notebook Support</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/jupyter-support-py">Python Interactive</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/environments">Environments</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/testing">Testing</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/tutorial-django">Django Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/tutorial-flask">Flask Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/tutorial-create-containers">Create containers</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/python-on-azure">Python on Azure</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/settings-reference">Settings Reference</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Java drop down" href="https://code.visualstudio.com/docs/setup/linux#java-articles" data-parent="#main-nav" data-toggle="collapse">Java</a>
+            					<ul id="java-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-tutorial">Java Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-editing">Working with source code</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-debugging">Running and Debugging</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-testing">Unit Testing</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-project">Project Management</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-tomcat-jetty">Tomcat and Jetty</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-spring-boot">Spring Boot</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-webapp">Java Web App</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-azurefunctions">Azure Functions in Java</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/extensions">Extensions</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-faq">FAQ</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="C++ drop down" href="https://code.visualstudio.com/docs/setup/linux#cpp-articles" data-parent="#main-nav" data-toggle="collapse">C++</a>
+            					<ul id="cpp-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/config-mingw">Mingw-w64 on Windows</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/config-wsl">GCC on Windows Subsystem for Linux</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/config-clang-mac">Clang on macOS</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/config-msvc">Microsoft C++</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/cpp-debug">Debugging</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/cpp-ide">Editing</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/customize-default-settings-cpp">Settings</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/colorization-cpp">Enhanced colorization</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/c-cpp-properties-schema-reference">c_cpp_properties.json</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/launch-json-reference">Debug configuration</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/natvis">Natvis framework</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/pipe-transport">Pipe transport</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/enable-logging-cpp">Logging</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/faq-cpp">FAQ</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Containers drop down" href="https://code.visualstudio.com/docs/setup/linux#containers-articles" data-parent="#main-nav" data-toggle="collapse">Containers</a>
+            					<ul id="containers-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/overview">Overview</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/quickstart-node">Node.js</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/quickstart-aspnet-core">ASP.NET Core</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/debug-common">Debug</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/quickstart-container-registries">Registries</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/app-service">Deploy to Azure</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/choosing-dev-environment">Choose a dev environment</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/reference">Customize</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Azure drop down" href="https://code.visualstudio.com/docs/setup/linux#azure-articles" data-parent="#main-nav" data-toggle="collapse">Azure</a>
+            					<ul id="azure-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/azure/extensions">Extensions</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/azure/deployment">Deployment</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/azure/remote-debugging">Remote Debugging for Node.js</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/azure/docker">Docker</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/azure/mongodb">MongoDB</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/azure/kubernetes">Kubernetes</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/azure/tryappservice">Try Azure App Service</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Remote drop down" href="https://code.visualstudio.com/docs/setup/linux#remote-articles" data-parent="#main-nav" data-toggle="collapse">Remote</a>
+            					<ul id="remote-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/remote-overview">Overview</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/ssh">SSH</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/containers">Containers</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/vsonline">Visual Studio Online</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/wsl">Windows Subsystem for Linux</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/remote-tutorials">Tutorials</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/troubleshooting">Tips and Tricks</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/containers-advanced">Advanced Containers</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/linux">Linux Prerequisites</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/faq">FAQ</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            		
+            	</ul>
+            </nav>
+            <nav id="small-nav" aria-label="Topics" class="docs-nav hidden-md hidden-lg">
+            	<h4>Topics</h4>
+            	<select id="small-nav-dropdown">
+            		<option value="/docs">Overview</option>
+            		
+            			
+            		
+            			
+            				<optgroup label="Setup">
+            				
+            					<option value="/docs/setup/setup-overview">Overview</option>
+            				
+            					<option value="/docs/setup/linux" selected="">Linux</option>
+            				
+            					<option value="/docs/setup/mac">macOS</option>
+            				
+            					<option value="/docs/setup/windows">Windows</option>
+            				
+            					<option value="/docs/setup/network">Network</option>
+            				
+            					<option value="/docs/setup/additional-components">Additional Components</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="Get Started">
+            				
+            					<option value="/docs/getstarted/introvideos">Intro Videos</option>
+            				
+            					<option value="/docs/getstarted/tips-and-tricks">Tips and Tricks</option>
+            				
+            					<option value="/docs/getstarted/userinterface">User Interface</option>
+            				
+            					<option value="/docs/getstarted/themes">Themes</option>
+            				
+            					<option value="/docs/getstarted/settings">Settings</option>
+            				
+            					<option value="/docs/getstarted/keybindings">Key Bindings</option>
+            				
+            					<option value="/docs/getstarted/locales">Display Language</option>
+            				
+            					<option value="/docs/getstarted/telemetry">Telemetry</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="User Guide">
+            				
+            					<option value="/docs/editor/codebasics">Basic Editing</option>
+            				
+            					<option value="/docs/editor/extension-gallery">Extension Marketplace</option>
+            				
+            					<option value="/docs/editor/intellisense">IntelliSense</option>
+            				
+            					<option value="/docs/editor/editingevolved">Code Navigation</option>
+            				
+            					<option value="/docs/editor/refactoring">Refactoring</option>
+            				
+            					<option value="/docs/editor/debugging">Debugging</option>
+            				
+            					<option value="/docs/editor/versioncontrol">Version Control</option>
+            				
+            					<option value="/docs/editor/integrated-terminal">Integrated Terminal</option>
+            				
+            					<option value="/docs/editor/multi-root-workspaces">Multi-root Workspaces</option>
+            				
+            					<option value="/docs/editor/tasks">Tasks</option>
+            				
+            					<option value="/docs/editor/userdefinedsnippets">Snippets</option>
+            				
+            					<option value="/docs/editor/emmet">Emmet</option>
+            				
+            					<option value="/docs/editor/command-line">Command Line</option>
+            				
+            					<option value="/docs/editor/accessibility">Accessibility</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="Languages">
+            				
+            					<option value="/docs/languages/overview">Overview</option>
+            				
+            					<option value="/docs/languages/javascript">JavaScript</option>
+            				
+            					<option value="/docs/languages/json">JSON</option>
+            				
+            					<option value="/docs/languages/html">HTML</option>
+            				
+            					<option value="/docs/languages/css">CSS, SCSS and Less</option>
+            				
+            					<option value="/docs/languages/typescript">TypeScript</option>
+            				
+            					<option value="/docs/languages/markdown">Markdown</option>
+            				
+            					<option value="/docs/languages/powershell">PowerShell</option>
+            				
+            					<option value="/docs/languages/cpp">C++</option>
+            				
+            					<option value="/docs/languages/java">Java</option>
+            				
+            					<option value="/docs/languages/php">PHP</option>
+            				
+            					<option value="/docs/languages/python">Python</option>
+            				
+            					<option value="/docs/languages/go">Go</option>
+            				
+            					<option value="/docs/languages/tsql">T-SQL</option>
+            				
+            					<option value="/docs/languages/csharp">C#</option>
+            				
+            					<option value="/docs/languages/dotnet">.NET Core</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="Node.js / JavaScript">
+            				
+            					<option value="/docs/nodejs/working-with-javascript">Working with JavaScript</option>
+            				
+            					<option value="/docs/nodejs/nodejs-tutorial">Node.js Tutorial</option>
+            				
+            					<option value="/docs/nodejs/nodejs-debugging">Node.js Debugging</option>
+            				
+            					<option value="/docs/nodejs/nodejs-deployment">Node.js Deployment</option>
+            				
+            					<option value="/docs/nodejs/reactjs-tutorial">React Tutorial</option>
+            				
+            					<option value="/docs/nodejs/angular-tutorial">Angular Tutorial</option>
+            				
+            					<option value="/docs/nodejs/vuejs-tutorial">Vue Tutorial</option>
+            				
+            					<option value="/docs/nodejs/emberjs-tutorial">Ember Tutorial</option>
+            				
+            					<option value="/docs/nodejs/debugging-recipes">Debugging Recipes</option>
+            				
+            					<option value="/docs/nodejs/extensions">Extensions</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="TypeScript">
+            				
+            					<option value="/docs/typescript/typescript-tutorial">Tutorial</option>
+            				
+            					<option value="/docs/typescript/typescript-compiling">Compiling</option>
+            				
+            					<option value="/docs/typescript/typescript-debugging">Debugging</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="Python">
+            				
+            					<option value="/docs/python/python-tutorial">Tutorial</option>
+            				
+            					<option value="/docs/python/editing">Editing Code</option>
+            				
+            					<option value="/docs/python/linting">Linting</option>
+            				
+            					<option value="/docs/python/debugging">Debugging</option>
+            				
+            					<option value="/docs/python/jupyter-support">Jupyter Notebook Support</option>
+            				
+            					<option value="/docs/python/jupyter-support-py">Python Interactive</option>
+            				
+            					<option value="/docs/python/environments">Environments</option>
+            				
+            					<option value="/docs/python/testing">Testing</option>
+            				
+            					<option value="/docs/python/tutorial-django">Django Tutorial</option>
+            				
+            					<option value="/docs/python/tutorial-flask">Flask Tutorial</option>
+            				
+            					<option value="/docs/python/tutorial-create-containers">Create containers</option>
+            				
+            					<option value="/docs/python/python-on-azure">Python on Azure</option>
+            				
+            					<option value="/docs/python/settings-reference">Settings Reference</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="Java">
+            				
+            					<option value="/docs/java/java-tutorial">Java Tutorial</option>
+            				
+            					<option value="/docs/java/java-editing">Working with source code</option>
+            				
+            					<option value="/docs/java/java-debugging">Running and Debugging</option>
+            				
+            					<option value="/docs/java/java-testing">Unit Testing</option>
+            				
+            					<option value="/docs/java/java-project">Project Management</option>
+            				
+            					<option value="/docs/java/java-tomcat-jetty">Tomcat and Jetty</option>
+            				
+            					<option value="/docs/java/java-spring-boot">Spring Boot</option>
+            				
+            					<option value="/docs/java/java-webapp">Java Web App</option>
+            				
+            					<option value="/docs/java/java-azurefunctions">Azure Functions in Java</option>
+            				
+            					<option value="/docs/java/extensions">Extensions</option>
+            				
+            					<option value="/docs/java/java-faq">FAQ</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="C++">
+            				
+            					<option value="/docs/cpp/config-mingw">Mingw-w64 on Windows</option>
+            				
+            					<option value="/docs/cpp/config-wsl">GCC on Windows Subsystem for Linux</option>
+            				
+            					<option value="/docs/cpp/config-clang-mac">Clang on macOS</option>
+            				
+            					<option value="/docs/cpp/config-msvc">Microsoft C++</option>
+            				
+            					<option value="/docs/cpp/cpp-debug">Debugging</option>
+            				
+            					<option value="/docs/cpp/cpp-ide">Editing</option>
+            				
+            					<option value="/docs/cpp/customize-default-settings-cpp">Settings</option>
+            				
+            					<option value="/docs/cpp/colorization-cpp">Enhanced colorization</option>
+            				
+            					<option value="/docs/cpp/c-cpp-properties-schema-reference">c_cpp_properties.json</option>
+            				
+            					<option value="/docs/cpp/launch-json-reference">Debug configuration</option>
+            				
+            					<option value="/docs/cpp/natvis">Natvis framework</option>
+            				
+            					<option value="/docs/cpp/pipe-transport">Pipe transport</option>
+            				
+            					<option value="/docs/cpp/enable-logging-cpp">Logging</option>
+            				
+            					<option value="/docs/cpp/faq-cpp">FAQ</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="Containers">
+            				
+            					<option value="/docs/containers/overview">Overview</option>
+            				
+            					<option value="/docs/containers/quickstart-node">Node.js</option>
+            				
+            					<option value="/docs/containers/quickstart-aspnet-core">ASP.NET Core</option>
+            				
+            					<option value="/docs/containers/debug-common">Debug</option>
+            				
+            					<option value="/docs/containers/quickstart-container-registries">Registries</option>
+            				
+            					<option value="/docs/containers/app-service">Deploy to Azure</option>
+            				
+            					<option value="/docs/containers/choosing-dev-environment">Choose a dev environment</option>
+            				
+            					<option value="/docs/containers/reference">Customize</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="Azure">
+            				
+            					<option value="/docs/azure/extensions">Extensions</option>
+            				
+            					<option value="/docs/azure/deployment">Deployment</option>
+            				
+            					<option value="/docs/azure/remote-debugging">Remote Debugging for Node.js</option>
+            				
+            					<option value="/docs/azure/docker">Docker</option>
+            				
+            					<option value="/docs/azure/mongodb">MongoDB</option>
+            				
+            					<option value="/docs/azure/kubernetes">Kubernetes</option>
+            				
+            					<option value="/docs/azure/tryappservice">Try Azure App Service</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="Remote">
+            				
+            					<option value="/docs/remote/remote-overview">Overview</option>
+            				
+            					<option value="/docs/remote/ssh">SSH</option>
+            				
+            					<option value="/docs/remote/containers">Containers</option>
+            				
+            					<option value="/docs/remote/vsonline">Visual Studio Online</option>
+            				
+            					<option value="/docs/remote/wsl">Windows Subsystem for Linux</option>
+            				
+            					<option value="/docs/remote/remote-tutorials">Tutorials</option>
+            				
+            					<option value="/docs/remote/troubleshooting">Tips and Tricks</option>
+            				
+            					<option value="/docs/remote/containers-advanced">Advanced Containers</option>
+            				
+            					<option value="/docs/remote/linux">Linux Prerequisites</option>
+            				
+            					<option value="/docs/remote/faq">FAQ</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            		
+            	</select>
+            </nav>		</div>
+		<div class="col-sm-9 col-md-8 body">
+			<div class="edit-github pull-right">
+				<a href="https://github.com/Microsoft/vscode-docs/blob/master/docs/setup/linux.md" tabindex="-1">
+					<button type="button" class="btn btn-default" aria-label="Edit current document on GitHub"><span class="glyphicon glyphicon-pencil"></span><i>&nbsp;</i><span class="hidden-xs">Edit</span></button>
+				</a>
+			</div>
+			<h1>Visual Studio Code on Linux</h1>
+<h2 id="_installation" data-needslink="_installation">Installation<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_installation">#</a></h2>
+<p>See the <a href="https://code.visualstudio.com/download">Download Visual Studio Code</a> page for a complete list of available installation options.</p>
+<h3 id="_snap" data-needslink="_snap">Snap<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_snap">#</a></h3>
+<p>Visual Studio Code is officially distributed as a Snap package in the <a href="https://snapcraft.io/store" class="external-link" target="_blank">Snap Store</a>:</p>
+<p><a href="https://snapcraft.io/code" class="external-link" target="_blank"><img src="./Running Visual Studio Code on Linux_files/snap-store.png" alt="Get it from the Snap Store"></a></p>
+<p>You can install it by running:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">sudo snap install --classic code </span><span style="color: #008000"># or code-insiders</span></code></pre>
+<p>Once installed, the Snap daemon will take care of automatically updating VS Code in the background. You will get an in-product update notification whenever a new update is available.</p>
+<p><strong>Note:</strong> If <code>snap</code> isn't available in your Linux distribution, please check the following <a href="https://docs.snapcraft.io/installing-snapd" class="external-link" target="_blank">Installing snapd guide</a>, which can help you get that set up.</p>
+<p>Learn more about snaps from the <a href="https://docs.snapcraft.io/" class="external-link" target="_blank">official Snap Documentation</a>.</p>
+<h3 id="_debian-and-ubuntu-based-distributions" data-needslink="_debian-and-ubuntu-based-distributions">Debian and Ubuntu based distributions<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions">#</a></h3>
+<p>The easiest way to install Visual Studio Code for Debian/Ubuntu based distributions is to download and install the <a href="https://go.microsoft.com/fwlink/?LinkID=760868" class="external-link" target="_blank">.deb package (64-bit)</a>, either through the graphical software center if it's available, or through the command line with:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">sudo apt install ./&lt;file&gt;.deb</span>
+
+<span style="color: #008000"># If you're on an older Linux distribution, you will need to run this instead:</span>
+<span style="color: #008000"># sudo dpkg -i &lt;file&gt;.deb</span>
+<span style="color: #008000"># sudo apt-get install -f # Install dependencies</span></code></pre>
+<p>Installing the .deb package will automatically install the apt repository and signing key to enable auto-updating using the system's package manager. Note that 32-bit and .tar.gz binaries are also available on the <a href="https://code.visualstudio.com/Download">VS Code download page</a>.</p>
+<p>The repository and key can also be installed manually with the following script:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor &gt; packages.microsoft.gpg</span>
+<span style="color: #000000">sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/</span>
+<span style="color: #000000">sudo sh -c </span><span style="color: #A31515">'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" &gt; /etc/apt/sources.list.d/vscode.list'</span></code></pre>
+<p>Then update the package cache and install the package using:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">sudo apt-get install apt-transport-https</span>
+<span style="color: #000000">sudo apt-get update</span>
+<span style="color: #000000">sudo apt-get install code </span><span style="color: #008000"># or code-insiders</span></code></pre>
+<h3 id="_rhel-fedora-and-centos-based-distributions" data-needslink="_rhel-fedora-and-centos-based-distributions">RHEL, Fedora, and CentOS based distributions<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions">#</a></h3>
+<p>We currently ship the stable 64-bit VS Code in a yum repository, the following script will install the key and repository:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc</span>
+<span style="color: #000000">sudo sh -c </span><span style="color: #A31515">'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" &gt; /etc/yum.repos.d/vscode.repo'</span></code></pre>
+<p>Then update the package cache and install the package using <code>dnf</code> (Fedora 22 and above):</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">sudo dnf check-update</span>
+<span style="color: #000000">sudo dnf install code</span></code></pre>
+<p>Or on older versions using <code>yum</code>:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">yum check-update</span>
+<span style="color: #000000">sudo yum install code</span></code></pre>
+<p>Due to the manual signing process and the system we use to publish, the yum repo may lag behind and not get the latest version of VS Code immediately.</p>
+<h3 id="_opensuse-and-slebased-distributions" data-needslink="_opensuse-and-slebased-distributions">openSUSE and SLE-based distributions<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_opensuse-and-slebased-distributions">#</a></h3>
+<p>The yum repository above also works for openSUSE and SLE-based systems, the following script will install the key and repository:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc</span>
+<span style="color: #000000">sudo sh -c </span><span style="color: #A31515">'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" &gt; /etc/zypp/repos.d/vscode.repo'</span></code></pre>
+<p>Then update the package cache and install the package using:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">sudo zypper refresh</span>
+<span style="color: #000000">sudo zypper install code</span></code></pre>
+<h3 id="_aur-package-for-arch-linux" data-needslink="_aur-package-for-arch-linux">AUR package for Arch Linux<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_aur-package-for-arch-linux">#</a></h3>
+<p>There is a community maintained <a href="https://aur.archlinux.org/packages/visual-studio-code-bin" class="external-link" target="_blank">Arch User Repository package for VS Code</a>.</p>
+<p>To get more information about the installation from the AUR, please consult the following wiki entry:
+<a href="https://wiki.archlinux.org/index.php/Arch_User_Repository#Build_and_install_the_package" class="external-link" target="_blank">Install AUR Packages</a>.</p>
+<h3 id="_nix-package-for-nixos-or-any-linux-distribution-using-nix-package-manager" data-needslink="_nix-package-for-nixos-or-any-linux-distribution-using-nix-package-manager">Nix package for NixOS (or any Linux distribution using Nix package manager)<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_nix-package-for-nixos-or-any-linux-distribution-using-nix-package-manager">#</a></h3>
+<p>There is a community maintained <a href="https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/editors/vscode/default.nix" class="external-link" target="_blank">VS Code Nix package</a> in the nixpkgs repository. In order to install it using Nix, set <code>allowUnfree</code> option to true in your <code>config.nix</code> and execute:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">nix-env -i vscode</span></code></pre>
+<h3 id="_installing-rpm-package-manually" data-needslink="_installing-rpm-package-manually">Installing .rpm package manually<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_installing-rpm-package-manually">#</a></h3>
+<p>The <a href="https://go.microsoft.com/fwlink/?LinkID=760867" class="external-link" target="_blank">VS Code .rpm package (64-bit)</a> can also be manually downloaded and installed, however auto-updating won't work unless the repository above is installed. Once downloaded it can be installed using your package manager, for example with <code>dnf</code>:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">sudo dnf install &lt;file&gt;.rpm</span></code></pre>
+<p>Note that 32-bit and .tar.gz binaries are also available on the <a href="https://code.visualstudio.com/Download">VS Code download page</a>.</p>
+<h2 id="_updates" data-needslink="_updates">Updates<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_updates">#</a></h2>
+<p>VS Code ships monthly and you can see when a new release is available by checking the <a href="https://code.visualstudio.com/updates">release notes</a>. If the VS Code repository was installed correctly, then your system package manager should handle auto-updating in the same way as other packages on the system.</p>
+<p><strong>Note:</strong> Updates are automatic and run in the background for the <a href="https://code.visualstudio.com/docs/setup/linux#_snap">Snap package</a>.</p>
+<h2 id="_nodejs" data-needslink="_nodejs">Node.js<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_nodejs">#</a></h2>
+<p>Node.js is a popular platform and runtime for easily building and running JavaScript applications. It also includes <a href="https://www.npmjs.com/" class="external-link" target="_blank">npm</a>, a Package Manager for Node.js modules. You'll see Node.js and npm mentioned frequently in our documentation and some optional VS Code tooling requires Node.js (for example, the VS Code <a href="https://code.visualstudio.com/api/get-started/your-first-extension">extension generator</a>).</p>
+<p>If you'd like to install Node.js on Linux, see <a href="https://nodejs.org/en/download/package-manager" class="external-link" target="_blank">Installing Node.js via package manager</a> to find the Node.js package and installation instructions tailored to your Linux distribution. You can also install and support multi version of Node.js by using the <a href="https://github.com/creationix/nvm" class="external-link" target="_blank">Node Version Manager</a>.</p>
+<p>To learn more about JavaScript and Node.js, see our <a href="https://code.visualstudio.com/docs/nodejs/nodejs-tutorial">Node.js tutorial</a>, where you'll learn about running and debugging Node.js applications with VS Code.</p>
+<h2 id="_setting-vs-code-as-the-default-text-editor" data-needslink="_setting-vs-code-as-the-default-text-editor">Setting VS Code as the default text editor<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_setting-vs-code-as-the-default-text-editor">#</a></h2>
+<h3 id="_xdgopen" data-needslink="_xdgopen">xdg-open<a class="hash-link" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_xdgopen">#</a></h3>
+<p>You can set the default text editor for text files (<code>text/plain</code>) that is used by <code>xdg-open</code> with the following command:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">xdg-mime default code.desktop text/plain</span></code></pre>
+<h3 id="_debian-alternatives-system" data-needslink="_debian-alternatives-system">Debian alternatives system<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_debian-alternatives-system">#</a></h3>
+<p>Debian-based distributions allow setting a default <strong>editor</strong> using the <a href="https://wiki.debian.org/DebianAlternatives" class="external-link" target="_blank">Debian alternatives system</a>, without concern for the MIME type. You can set this by running the following and selecting code:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">sudo update-alternatives --set editor /usr/bin/code</span></code></pre>
+<h2 id="_windows-as-a-linux-developer-machine" data-needslink="_windows-as-a-linux-developer-machine">Windows as a Linux developer machine<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_windows-as-a-linux-developer-machine">#</a></h2>
+<p>Another option for Linux development with VS Code is use a Windows machine with the <a href="https://docs.microsoft.com/windows/wsl/install-win10" class="external-link" target="_blank">Windows Subsystem for Linux</a> (WSL).</p>
+<h3 id="_windows-subsystem-for-linux" data-needslink="_windows-subsystem-for-linux">Windows Subsystem for Linux<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_windows-subsystem-for-linux">#</a></h3>
+<p>With WSL, you can install and run Linux distributions on Windows. This enables you to develop and test your source code on Linux while still working locally on a Windows machine. WSL supports Linux distributions such as Ubuntu, Debian, SUSE, and Alpine available from the Microsoft Store.</p>
+<p>When coupled with the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl" class="external-link" target="_blank">Remote - WSL</a> extension, you get full VS Code editing and debugging support while running in the context of a Linux distro on WSL.</p>
+<p>See the <a href="https://code.visualstudio.com/docs/remote/wsl">Developing in WSL</a> documentation to learn more or try the <a href="https://code.visualstudio.com/remote-tutorials/wsl/getting-started">Working in WSL</a> step-by-step tutorial.</p>
+<h2 id="_next-steps" data-needslink="_next-steps">Next steps<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_next-steps">#</a></h2>
+<p>Once you have installed VS Code, these topics will help you learn more about it:</p>
+<ul>
+<li><a href="https://code.visualstudio.com/docs/setup/additional-components">Additional Components</a> - Learn how to install Git, Node.js, TypeScript, and tools like Yeoman.</li>
+<li><a href="https://code.visualstudio.com/docs/getstarted/userinterface">User Interface</a> - A quick orientation to VS Code.</li>
+<li><a href="https://code.visualstudio.com/docs/getstarted/settings">User/Workspace Settings</a> - Learn how to configure VS Code to your preferences through settings.</li>
+</ul>
+<h2 id="_common-questions" data-needslink="_common-questions">Common questions<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_common-questions">#</a></h2>
+<h3 id="_azure-vm-issues" data-needslink="_azure-vm-issues">Azure VM Issues<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_azure-vm-issues">#</a></h3>
+<p>I'm getting a "Running without the SUID sandbox" error?</p>
+<p>You can safely ignore this error.</p>
+<h3 id="_debian-and-moving-files-to-trash" data-needslink="_debian-and-moving-files-to-trash">Debian and moving files to trash<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_debian-and-moving-files-to-trash">#</a></h3>
+<p>If you see an error when deleting files from the VS Code Explorer on the Debian operating system, it might be because the trash implementation that VS Code is using is not there.</p>
+<p>Run these commands to solve this issue:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">sudo apt-get install gvfs-bin</span></code></pre>
+<h3 id="_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc" data-needslink="_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc">"Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc">#</a></h3>
+<p>When you see this notification, it indicates that the VS Code file watcher is running out of handles because the workspace is large and contains many files. The current limit can be viewed by running:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">cat /proc/sys/fs/inotify/max_user_watches</span></code></pre>
+<p>The limit can be increased to its maximum by editing <code>/etc/sysctl.conf</code> and adding this line to the end of the file:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">fs.inotify.max_user_watches=524288</span></code></pre>
+<p>The new value can then be loaded in by running <code>sudo sysctl -p</code>. Note that <a href="https://www.archlinux.org/" class="external-link" target="_blank">Arch Linux</a> works a little differently, See <a href="https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers" class="external-link" target="_blank">Increasing the amount of inotify watchers</a> for details.</p>
+<p>While 524,288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch <a href="https://stackoverflow.com/a/7091897/1156119" class="external-link" target="_blank">takes up 540 bytes (32-bit) or ~1kB (64-bit)</a>, so assuming that all 524,288 watches are consumed, that results in an upper bound of around 256MB (32-bit) or 512MB (64-bit).</p>
+<p>Another option is to exclude specific workspace directories from the VS Code file watcher with the <code>files.watcherExclude</code> <a href="https://code.visualstudio.com/docs/getstarted/settings">setting</a>. The default for <code>files.watcherExclude</code> excludes <code>node_modules</code> and some folders under <code>.git</code>, but you can add other directories that you don't want VS Code to track.</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #A31515">"files.watcherExclude"</span><span style="color: #000000">: {</span>
+<span style="color: #000000">    </span><span style="color: #0451A5">"**/.git/objects/**"</span><span style="color: #000000">: </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #0451A5">"**/.git/subtree-cache/**"</span><span style="color: #000000">: </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #0451A5">"**/node_modules/*/**"</span><span style="color: #000000">: </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">  }</span></code></pre>
+<h3 id="_i-cant-see-chinese-characters-in-ubuntu" data-needslink="_i-cant-see-chinese-characters-in-ubuntu">I can't see Chinese characters in Ubuntu<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_i-cant-see-chinese-characters-in-ubuntu">#</a></h3>
+<p>We're working on a fix. In the meantime, open the application menu, then choose <strong>File</strong> &gt; <strong>Preferences</strong> &gt; <strong>Settings</strong>. In the <strong>Text Editor</strong> &gt; <strong>Font</strong> section, set "Font Family" to <code>Droid Sans Mono, Droid Sans Fallback</code>. If you'd rather edit the <code>settings.json</code> file directly, set <code>editor.fontFamily</code> as shown:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">    </span><span style="color: #A31515">"editor.fontFamily"</span><span style="color: #000000">: </span><span style="color: #A31515">"Droid Sans Mono, Droid Sans Fallback"</span></code></pre>
+<h3 id="_package-git-is-not-installed" data-needslink="_package-git-is-not-installed">Package git is not installed<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_package-git-is-not-installed">#</a></h3>
+<p>This error can appear during installation and is typically caused by the package manager's lists being out of date. Try updating them and installing again:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #008000"># For .deb</span>
+<span style="color: #000000">sudo apt-get update</span>
+
+<span style="color: #008000"># For .rpm (Fedora 21 and below)</span>
+<span style="color: #000000">sudo yum check-update</span>
+
+<span style="color: #008000"># For .rpm (Fedora 22 and above)</span>
+<span style="color: #000000">sudo dnf check-update</span></code></pre>
+<h3 id="_the-code-bin-command-does-not-bring-the-window-to-the-foreground-on-ubuntu" data-needslink="_the-code-bin-command-does-not-bring-the-window-to-the-foreground-on-ubuntu">The code bin command does not bring the window to the foreground on Ubuntu<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_the-code-bin-command-does-not-bring-the-window-to-the-foreground-on-ubuntu">#</a></h3>
+<p>Running <code>code .</code> on Ubuntu when VS Code is already open in the current directory will not bring VS Code into the foreground. This is a feature of the OS which can be disabled using <code>ccsm</code>.</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #008000"># Install</span>
+<span style="color: #000000">sudo apt-get update</span>
+<span style="color: #000000">sudo apt-get install compizconfig-settings-manager</span>
+
+<span style="color: #008000"># Run</span>
+<span style="color: #000000">ccsm</span></code></pre>
+<p>Under <strong>General</strong> &gt; <strong>General Options</strong> &gt; <strong>Focus &amp; Raise Behaviour</strong>, set "Focus Prevention Level" to "Off". Remember this is an OS-level setting that will apply to all applications, not just VS Code.</p>
+<h3 id="_cannot-install-deb-package-due-to-etcaptsourceslistdvscodelist-no-such-file-or-directory" data-needslink="_cannot-install-deb-package-due-to-etcaptsourceslistdvscodelist-no-such-file-or-directory">Cannot install .deb package due to "/etc/apt/sources.list.d/vscode.list: No such file or directory"<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_cannot-install-deb-package-due-to-etcaptsourceslistdvscodelist-no-such-file-or-directory">#</a></h3>
+<p>This can happen when <code>sources.list.d</code> doesn't exist or you don't have access to create the file. To fix this, try manually creating the folder and an empty <code>vscode.list</code> file:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">sudo mkdir /etc/apt/sources.list.d</span>
+<span style="color: #000000">sudo touch /etc/apt/sources.list.d/vscode.list</span></code></pre>
+<h3 id="_cannot-move-or-resize-the-window-while-x-forwarding-a-remote-window" data-needslink="_cannot-move-or-resize-the-window-while-x-forwarding-a-remote-window">Cannot move or resize the window while X forwarding a remote window<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_cannot-move-or-resize-the-window-while-x-forwarding-a-remote-window">#</a></h3>
+<p>If you are using X forwarding to use VS Code remotely, you will need to use the native title bar to ensure you can properly manipulate the window. You can switch to using it by setting <code>window.titleBarStyle</code> to <code>native</code>.</p>
+<h3 id="_using-the-custom-title-bar" data-needslink="_using-the-custom-title-bar">Using the custom title bar<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_using-the-custom-title-bar">#</a></h3>
+<p>The custom title bar and menus were enabled by default on Linux for several months. The custom title bar has been a success on Windows, but the customer response on Linux suggests otherwise. Based on feedback, we have decided to make this setting opt-in on Linux and leave the native title bar as the default.</p>
+<p>The custom title bar provides many benefits including great theming support and better accessibility through keyboard navigation and screen readers. Unfortunately, these benefits do not translate as well to the Linux platform. Linux has a variety of desktop environments and window managers that can make the VS Code theming look foreign to users. For users needing the accessibility improvements, we recommend enabling the custom title bar when running in accessibility mode using a screen reader. You can still manually set the title bar with the <strong>Window: Title Bar Style</strong> (<code>window.titleBarStyle</code>) setting.</p>
+<h3 id="_broken-cursor-in-editor-with-display-scaling-enabled" data-needslink="_broken-cursor-in-editor-with-display-scaling-enabled">Broken cursor in editor with display scaling enabled<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_broken-cursor-in-editor-with-display-scaling-enabled">#</a></h3>
+<p>Due to an upstream <a href="https://github.com/electron/electron/issues/14787" class="external-link" target="_blank">issue #14787</a> with Electron, the mouse cursor may render incorrectly with scaling enabled. If you notice that the usual text cursor is not being rendered inside the editor as you would expect, try falling back to the native menu bar by configuring the setting <code>window.titleBarStyle</code> to <code>native</code>.</p>
+<h3 id="_repository-changed-its-origin-value" data-needslink="_repository-changed-its-origin-value">Repository changed its origin value<a class="hash-link hidden" aria-hidden="true" href="https://code.visualstudio.com/docs/setup/linux#_repository-changed-its-origin-value">#</a></h3>
+<p>If you receive an error similar to the following:</p>
+<pre class="shiki"><code>E: Repository '...' changed its 'Origin' value from '...' to '...'
+N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.
+</code></pre>
+<p>Use <code>apt</code> instead of <code>apt-get</code> and you will be prompted to accept the origin change:</p>
+<pre class="shiki" style="background-color: #fff"><code><span style="color: #000000">sudo apt update</span></code></pre>
+
+			<div class="feedback"><div data-reactroot="" class="widget"><form aria-label="Feedback"><div class="buttons"><h3>Was this documentation helpful?</h3><br><button value="1"><!-- react-text: 7 -->Yes<!-- /react-text --><span class="sr-only"> , this page was helpful</span></button><button value="0"><!-- react-text: 10 -->No<!-- /react-text --><span class="sr-only"> , this page was not helpful</span></button></div></form></div></div>
+			
+			<div class="body-footer">2/5/2020</div>
+			
+		</div>
+        <div class="col-sm-3 col-md-2 docs-subnavbar-container">
+            <nav id="docs-subnavbar" aria-label="On Page" data-spy="affix" data-offset-top="20" class="affix">
+				<h4 tabindex="0"><span class="sr-only">In this article there are 7 sections</span><span aria-hidden="true">In this article</span></h4>
+                <ul class="nav">
+                	
+                		<li class=""><a href="https://code.visualstudio.com/docs/setup/linux#_installation">Installation</a></li>
+                	
+                		<li class=""><a href="https://code.visualstudio.com/docs/setup/linux#_updates">Updates</a></li>
+                	
+                		<li class="active"><a href="https://code.visualstudio.com/docs/setup/linux#_nodejs">Node.js</a></li>
+                	
+                		<li class=""><a href="https://code.visualstudio.com/docs/setup/linux#_setting-vs-code-as-the-default-text-editor">Setting VS Code as the default text editor</a></li>
+                	
+                		<li class=""><a href="https://code.visualstudio.com/docs/setup/linux#_windows-as-a-linux-developer-machine">Windows as a Linux developer machine</a></li>
+                	
+                		<li class=""><a href="https://code.visualstudio.com/docs/setup/linux#_next-steps">Next steps</a></li>
+                	
+                		<li class=""><a href="https://code.visualstudio.com/docs/setup/linux#_common-questions">Common questions</a></li>
+                	
+                </ul>
+				<div class="connect-widget"><ul data-reactroot="" class="connect-links"><li id="connect-twitter-link"><a href="https://twitter.com/intent/tweet?original_referer=https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc&amp;ref_src=twsrc%5Etfw&amp;text=Running%20Visual%20Studio%20Code%20on%20Linux&amp;tw_p=tweetbutton&amp;url=https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc&amp;via=code" target="_blank"><img alt="Twitter" src="./Running Visual Studio Code on Linux_files/twitter.svg"><!-- react-text: 5 -->Tweet this link<!-- /react-text --></a></li><li id="connect-rssfeed"><a href="https://code.visualstudio.com/feed.xml" target="_blank"><img alt="RSS" src="./Running Visual Studio Code on Linux_files/rss.svg"><!-- react-text: 9 -->Subscribe<!-- /react-text --></a></li><li id="connect-stack-overflow"><a href="https://stackoverflow.com/questions/tagged/vscode" target="_blank"><img alt="Stackoverflow" src="./Running Visual Studio Code on Linux_files/stackoverflow.svg"><!-- react-text: 13 -->Ask questions<!-- /react-text --></a></li><li id="connect-twitter"><a href="https://go.microsoft.com/fwlink/?LinkID=533687" target="_blank"><img alt="Twitter" src="./Running Visual Studio Code on Linux_files/twitter.svg"><!-- react-text: 17 -->Follow @code<!-- /react-text --></a></li><li id="connect-uservoice"><a href="https://go.microsoft.com/fwlink/?LinkID=533482" target="_blank"><img alt="GitHub" src="./Running Visual Studio Code on Linux_files/github.svg"><!-- react-text: 21 -->Request features<!-- /react-text --></a></li><li id="connect-github"><a href="https://www.github.com/Microsoft/vscode/issues" target="_blank"><img alt="Issues" src="./Running Visual Studio Code on Linux_files/issue.svg"><!-- react-text: 25 -->Report issues<!-- /react-text --></a></li><li id="connect-youtube"><a href="https://www.youtube.com/channel/UCs5Y5_7XK8HLDX0SLNwkd3w" target="_blank"><img alt="YouTube" src="./Running Visual Studio Code on Linux_files/youtube.svg"><!-- react-text: 29 -->Watch videos<!-- /react-text --></a></li></ul></div>
+			</nav>
+        </div>
+	</div>
+</div>
+      </div>
+  </div>
+
+  <footer role="contentinfo">
+      <div class="container">
+          <div class="row">
+              <div class="left col-md-7">
+                  <ul class="links">
+                      <li>
+                          <span class="message">Hello from Seattle.</span>
+                      </li>
+                      <li>
+                          <a href="https://go.microsoft.com/fwlink/?LinkID=533687" onclick="followOnTwitter()" role="button" tabindex="0">Follow @code</a>
+                      </li>
+                      <li>
+                          <div class="github-star-button">
+                              <iframe src="./Running Visual Studio Code on Linux_files/github-button.html" frameborder="0" scrolling="0" width="130px" height="20px" title="GitHub follow button" aria-label="GitHub follow button"></iframe>
+                          </div>
+                      </li>
+  
+                      <script>
+                          function followOnTwitter() {
+                              var windowFeatures = "location=yes,height=600,width=550,scrollbars=yes,status=yes";
+                              var originalReferer = "&original_referer=" + document.URL;
+                              var screenName = "&screen_name=code";
+                              var URL = "https://twitter.com/intent/follow?" + originalReferer + screenName;
+                              window.open(URL, "_blank", windowFeatures);
+                          }
+                      </script>
+                  </ul>
+              </div>
+              <div class="right col-md-5">
+                  <ul class="links">
+                      <li><a id="footer-support-link" href="https://support.microsoft.com/en-us/getsupport?wf=0&amp;tenant=ClassicCommercial&amp;oaspworkflow=start_1.0.0.0&amp;locale=en-us&amp;supportregion=en-us&amp;pesid=16064&amp;ccsid=636196895839595242" target="_blank">Support</a></li>
+                      <li><a id="footer-privacy-link" href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">Privacy</a></li>
+                      <li><a id="footer-terms-link" href="https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx" target="_blank">Terms of Use</a></li>
+                      <li><a id="footer-license-link" href="https://code.visualstudio.com/License">License</a></li>
+                  </ul>
+                  <div class="copyright">
+                      <a id="footer-microsoft-link" class="logo" href="https://www.microsoft.com/">
+                          <img class="microsoft-logo" src="./Running Visual Studio Code on Linux_files/microsoft-logo.png" height="20" alt="Microsoft homepage">
+                          <img class="microsoft-logo-inverted" src="./Running Visual Studio Code on Linux_files/microsoft-logo-inverted.png" height="20" alt="Microsoft homepage">
+                      </a>
+                      <span>© 2020 <span itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+  <span itemprop="name">Microsoft</span></span>
+                      </span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </footer>
+  <script src="./Running Visual Studio Code on Linux_files/index.js"></script>
+
+  
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Product",
+      "name" : "Visual Studio Code",
+      "logo": "https://code.visualstudio.com/assets/favicon.ico",
+      "url" : "https://code.visualstudio.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://code.visualstudio.com/Search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "sameAs" : [
+      "https://en.wikipedia.org/wiki/Visual_Studio_Code",
+      "https://www.facebook.com/visualstudio",
+      "https://twitter.com/code",
+      "https://blogs.msdn.com/b/vscode"
+      ]
+    }
+  </script>
+
+  <!-- [Begin] JSLL script includes -->
+  
+  <script type="text/javascript">
+    var config = {
+      coreData: {
+        appId: "vscode"
+      }
+    };
+    if (awa) {
+      awa.init(config);
+    }
+  </script>
+  <!-- [End] JSLL script includes -->
+</body></html>
